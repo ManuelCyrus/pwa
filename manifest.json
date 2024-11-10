@@ -4,13 +4,13 @@
   "description": "Um Progressive Web App de exemplo.",
   "icons": [
     {
-      "src":"galeneses-logo.jpeg",
+      "src":"favicon-32x32.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any"
     },
     {
-      "src":"galeneses-logo.jpeg",
+      "src":"favicon-32x32.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any"
