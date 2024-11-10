@@ -1,0 +1,23 @@
+{
+  "short_name": "MeuApp",
+  "name": "Meu Aplicativo Progressivo",
+  "description": "Um Progressive Web App de exemplo.",
+  "icons": [
+    {
+      "src":"favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any"
+    },
+    {
+      "src":"favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#bbb"
+}
