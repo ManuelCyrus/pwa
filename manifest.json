@@ -4,19 +4,19 @@
   "description": "Um Progressive Web App de exemplo.",
   "icons": [
     {
-      "src":"/a.a/icons/favicon.png",
+      "src":"/icons/favicon.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any"
     },
     {
-      "src":"/a.a/icons/favicon.png",
+      "src":"/icons/favicon.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any"
     }
   ],
-  "start_url": "/a.a/index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
