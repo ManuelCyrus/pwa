@@ -1,10 +1,10 @@
 const CACHE_NAME = "meu-app-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/app.js",
-  "/icons/budget.png"
+  "/pwa/",
+  "/pwa/index.html",
+  "/pwa/styles.css",
+  "/pwa/app.js",
+  "/pwa/icons/budget.png"
 ];
 
 // Instala o Service Worker e adiciona recursos ao cache
