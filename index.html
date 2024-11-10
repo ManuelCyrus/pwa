@@ -1,67 +1,23 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu PWA</title>
-  <link rel="manifest" href="/pwa/manifest.json">
-  <meta name="theme-color" content="#000000">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    
+    <!-- modify -->
+    <title>Title</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#33ffcc"/>
+    <!-- /manifest -->
 </head>
 <body>
-  <h1>Bem-vindo ao Meu PWA!</h1>
-<img src="icons/favicon.png" alt="">
-  <a href="g.html">V</a>
-  <a href="p.html">TR</a>
-  <a href="p.html">TR</a>
+    
+    <h1>it works.</h1>
 
-
-  <button id="installButton" style="display: none;">Instalar App</button>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      let deferredPrompt;
-
-      // Verificação para o evento beforeinstallprompt
-      window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById("installButton").style.display = "block";
-});
-
-
-      // Clique no botão de instalação
-      document.getElementById("installButton").addEventListener("click", () => {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === "accepted") {
-              console.log("App instalado com sucesso");
-            } else {
-              console.log("Usuário recusou a instalação");
-            }
-            deferredPrompt = null;
-          });
-        }
-      });
-
-      // Verifica se o Service Worker é suportado e registra
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/pwa/service-worker.js').then((registration) => {
-          console.log('Service Worker registrado com sucesso:', registration);
-        }).catch((error) => {
-          console.error('Falha ao registrar o Service Worker:', error);
-        });
-      }
-
-      // Verifica se o manifesto foi carregado corretamente
-      if (document.querySelector("link[rel='manifest']")) {
-        console.log('Manifesto carregado com sucesso');
-      } else {
-        console.error('Manifesto não encontrado ou não carregado');
-      }
-    });
-  </script>
+    <!-- load service worker -->
+    <script src="app.js"></script>
+    <!-- /load service worker -->
 </body>
 </html>
-
