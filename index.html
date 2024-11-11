@@ -2,22 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-    
-    <!-- modify -->
-    <title>Title</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#33ffcc"/>
-    <!-- /manifest -->
+
+    <title>Document</title>
 </head>
 <body>
     
-    <h1>Teste feito</h1>
+    <button id="installButton" style="display: none;">Instalar Aplicativo</button>
 
-    <!-- load service worker -->
-    <script src="app.js"></script>
-    <!-- /load service worker -->
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa doloremque officiis dolore. Reiciendis reprehenderit doloremque maxime, praesentium enim ad officia non repellendus. Earum maxime quia fuga? Quasi suscipit blanditiis magni.</p>
+
+
+
+<script>
+
+
+// prompt de instalação
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Exibir um botão ou notificação para o usuário instalar o app
+  const installButton = document.getElementById('installButton');
+  installButton.style.display = 'block';
+
+  installButton.addEventListener('click', () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Usuário aceitou instalar o app');
+      } else {
+        console.log('Usuário recusou instalar o app');
+      }
+      deferredPrompt = null;
+    });
+  });
+});
+
+
+// prompt de instalação
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then((registration) => {
+        console.log('Service Worker registrado com sucesso, teste:', registration);
+      })
+      .catch((error) => {
+        console.log('Falha ao registrar o Service Worker:', error);
+      });
+  });
+}
+
+
+</script>
 </body>
 </html>
